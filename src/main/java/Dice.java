@@ -11,4 +11,9 @@ public class Dice {
     }
 
 
+    public int rollDice(){
+        return 0;
+    }
+
+
 }
