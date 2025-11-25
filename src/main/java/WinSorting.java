@@ -36,7 +36,9 @@ public class WinSorting {
     }
 
     public List<Player>getPlayersByScore(){
-        return null;
+        List<Player> sorted = new ArrayList<>(players);
+        sorted.sort((p1, p2)->Integer.compare(p2.getScore(), p1.getScore()));
+        return sorted;
     }
 
 
