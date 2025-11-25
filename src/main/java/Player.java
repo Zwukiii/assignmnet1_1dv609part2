@@ -5,7 +5,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
-        this.score = 1;
+        this.score = 0;
     }
 
     public String getName() {
