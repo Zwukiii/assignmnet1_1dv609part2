@@ -5,6 +5,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 class WinSortingTest {
@@ -37,26 +38,49 @@ class WinSortingTest {
     }
 
     @Test
-    void testBinarySearchIfItIsSortedCorrectlyAlphabetically(){
+    void testBinarySearchIfItIsSortedCorrectlyAlphabetically() {
         sut.addPlayers(new Player("Emma"));
         sut.addPlayers(new Player("Alex"));
         sut.addPlayers(new Player("Bob"));
 
         sut.binarySearch("Emma");//start point of search
 
-        List<Player>sortedList = sut.getPlayers();
+        List<Player> sortedList = sut.getPlayers();
 
-        for (int i =0; i<sortedList.size()-1; i++){
+        for (int i = 0; i < sortedList.size() - 1; i++) {
             String currentName = sortedList.get(i).getName();
-            String nextName = sortedList.get(i+1).getName();
+            String nextName = sortedList.get(i + 1).getName();
 
-            assertTrue(currentName.compareTo(nextName)<=0, "It is correctly sorted");
+            assertTrue(currentName.compareTo(nextName) <= 0, "It is correctly sorted");
 
         }
-
     }
 
 
 
+    @Test
+    void ScoreSortingTestIfsortWorks(){
+        Player p1 = new Player("Alen");
+        p1.playerScores(2);
+
+        Player p2 = new Player("Bogdan");
+        p1.playerScores(5);
+
+        Player p3 = new Player("Eiwan");
+        p1.playerScores(3);
+
+        sut.addPlayers(p1);
+        sut.addPlayers(p2);
+        sut.addPlayers(p3);
+
+        List<Player>sortedScore = sut.getPlayersByScore();
+
+        for (int i =0; i<sortedScore.size()-1; i++){
+            int currentSocre = sortedScore.get(i).getScore();
+            int nextScore = sortedScore.get(i+1).getScore();
+
+            assertTrue(currentSocre >= nextScore, "It is correctly sorted");
+        }
+    }
 
 }

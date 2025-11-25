@@ -33,6 +33,10 @@ public class WinSorting {
        return -1;
     }
 
+    public List<Player>getPlayersByScore(){
+        return null;
+    }
+
 
 
     public List<Player> getPlayers() {
