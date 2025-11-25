@@ -13,6 +13,8 @@ public class PlayerTest {
         sut = new Player("Alen");
     }
 
+
+    // checks if the starting score is Zero
     @Test
     void shouldStartScoreAtZero() {
         assertEquals(0, sut.getScore());
