@@ -17,6 +17,7 @@ public class Player {
     }
 
     public void playerScore(int value) {
+        this.score += value;
 
     }
 
