@@ -5,29 +5,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlayerTest {
 
-    Player sut;
 
+    Player sut;
 
     @BeforeEach
     void setup() {
         sut = new Player("Alen");
     }
 
-
     @Test
-    void shouldStartScoreAtZero() {
+    void ShouldStartZeroAtZero() {
         assertEquals(0, sut.getScore());
+
     }
 
-
-    @Test
-    void shouldIncreaseScoreWhenPlayerScores() {
-        sut.playerScore(5);
-        assertEquals(5, sut.getScore());
-
-
-        sut.playerScore(10);
-
-        assertEquals(15, sut.getScore());
-    }
 }
