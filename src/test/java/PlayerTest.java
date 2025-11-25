@@ -14,9 +14,19 @@ public class PlayerTest {
     }
 
     @Test
-    void ShouldStartZeroAtZero() {
+    void ShouldStartScoreAtZero() {
         assertEquals(0, sut.getScore());
 
     }
+
+    @Test
+    void shouldIncreaseScoreWhenPlayerScores() {
+        sut.playerScores(5);
+        assertEquals(5, sut.getScore());
+
+        sut.playerScores(10);
+        assertEquals(15, sut.getScore());
+    }
+
 
 }
