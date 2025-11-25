@@ -15,6 +15,8 @@ public class WinSorting {
     public void addPlayers(Player player){
         players.add(player);
     }
+
+
     //Sorts players by name
     int binarySearch(String name){
        players.sort(Comparator.comparing(Player::getName));
