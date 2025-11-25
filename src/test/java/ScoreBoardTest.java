@@ -17,14 +17,14 @@ public class ScoreBoardTest {
     }
 
     @Test
-    void shouldReturnP1asWinnerWhenAchivedHigherScore() {
+    void shouldReturnP1asWinnerWhenAchievedHigherScore() {
         p1.playerScores(10);
         p2.playerScores(5);
         assertEquals("Alen", sut.getWinner(p1, p2));
     }
 
     @Test
-    void shouldReturnP2asWinnerWhenAchivedHigherScore() {
+    void  shouldReturnP2asWinnerWhenAchievedHigherScore() {
         p1.playerScores(15);
         p2.playerScores(25);
         assertEquals("Bogdan", sut.getWinner(p1,p2));
