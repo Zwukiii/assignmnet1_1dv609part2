@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ScoreBoardTest {
 
@@ -23,5 +24,11 @@ public class ScoreBoardTest {
         assertEquals("Alen", sut.getWinner(p1, p2));
     }
 
+    @Test
+    void shouldReturnP2asWinnerWhenAchivedHigherScore() {
+        p1.playerScores(15);
+        p2.playerScores(25);
+        assertEquals("Bogdan", sut.getWinner(p1,p2));
+    }
 
 }
