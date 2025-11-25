@@ -12,8 +12,13 @@ public class Dice {
 
 
     public int rollDice(){
-        return 0;
+        return (int) (Math.random()*sides)+1;
     }
+
+    public int getSides(){
+        return sides;
+    }
+
 
 
 }
