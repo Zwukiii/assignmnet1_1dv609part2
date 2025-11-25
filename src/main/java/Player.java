@@ -15,9 +15,4 @@ public class Player {
     public int getScore() {
         return score;
     }
-
-    public void playerScore(int value) {
-
-    }
-
 }
