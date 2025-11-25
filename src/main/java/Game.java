@@ -23,6 +23,8 @@ public class Game {
     }
 
     public void playRounds(OutputProvider output) {
+        int r1 = dice.rollDice();
+        int r2 = dice.rollDice();
 
     }
 }
