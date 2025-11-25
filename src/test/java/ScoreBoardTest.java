@@ -31,4 +31,11 @@ public class ScoreBoardTest {
         assertEquals("Bogdan", sut.getWinner(p1,p2));
     }
 
+    @Test
+    void ShouldReturnTieWhenBothScoreAreEqual() {
+        p1.playerScores(20);
+        p2.playerScores(20);
+        assertEquals("TIE", sut.getWinner(p1,p2));
+    }
+
 }
