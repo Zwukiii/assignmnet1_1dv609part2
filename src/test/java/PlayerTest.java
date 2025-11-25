@@ -14,7 +14,7 @@ public class PlayerTest {
     }
 
 
-
+    // Test that checks if the starting score is zero
     @Test
     void shouldStartScoreAtZero() {
         assertEquals(0, sut.getScore());
