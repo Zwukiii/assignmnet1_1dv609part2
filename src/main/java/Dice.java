@@ -2,9 +2,10 @@ public class Dice {
 
     private final int sides;
 
+    //Refactor
     public Dice(int sides){
-        if (sides==1){
-            System.out.println("Invalid dice");
+        if (sides<2){
+            throw new IllegalArgumentException("Dice must have at least 2 sides");
         }
         this.sides= sides;
     }
