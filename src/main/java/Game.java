@@ -25,6 +25,8 @@ public class Game {
     public void playRounds(OutputProvider output) {
         int r1 = dice.rollDice();
         int r2 = dice.rollDice();
+        p1.playerScores(r1);
+        p2.playerScores(r2);
 
     }
 }

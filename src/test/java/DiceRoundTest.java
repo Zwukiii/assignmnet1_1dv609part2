@@ -48,6 +48,6 @@ public class DiceRoundTest {
         when(dice.rollDice()).thenReturn(5,6);
         sut.playRounds(output);
         assertEquals(5, sut.getP1().getScore());
-        assertEquals(6, sut.getP1().getScore());
+        assertEquals(6, sut.getP2().getScore());
     }
 }
