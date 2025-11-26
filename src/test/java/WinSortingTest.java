@@ -101,8 +101,10 @@ class WinSortingTest {
         when(exists.getName()).thenReturn("Christian");
         when(exists.getScore()).thenReturn(3);
 
+        sut.addPlayers(exists);
+
         when(mockPlayer.getName()).thenReturn("Oliver");
-        when(mockPlayer.getScore()).thenReturn(3);
+        when(mockPlayer.getScore()).thenReturn(6);
 
         sut.addPlayers(mockPlayer);
 
@@ -131,9 +133,6 @@ class WinSortingTest {
 
     }
 
-
-
-
-
+    
 
 }
