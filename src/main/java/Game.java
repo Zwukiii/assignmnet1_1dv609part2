@@ -6,12 +6,14 @@ public class Game {
     private final Player p1;
     private final Player p2;
     private final ScoreBoard scoreBoard;
+    private final WinSorting leaderboard;
 
     public Game(Dice dice, Player p1, Player p2, ScoreBoard scoreBoard, WinSorting leaderboard) {
         this.dice = dice;
         this.p1 = p1;
         this.p2 = p2;
         this.scoreBoard = scoreBoard;
+        this.leaderboard = leaderboard;
     }
 
     public Player getP1() {
@@ -27,6 +29,8 @@ public class Game {
         int r2 = dice.rollDice();
         p1.playerScores(r1);
         p2.playerScores(r2);
+        leaderboard.addPlayers(p1);
+        leaderboard.addPlayers(p2);
 
     }
 }
