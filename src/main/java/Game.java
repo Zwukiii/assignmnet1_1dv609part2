@@ -42,8 +42,10 @@ public class Game {
 
     public void playTheGame(InputProvider input, OutputProvider output) {
         int round = 1;
+
         while (true) {
             String user = input.getInput();
+
             if (user.equalsIgnoreCase("Q")) {
                 output.print("Game Over. Winner is: " + getWinner());
                 break;

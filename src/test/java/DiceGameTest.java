@@ -4,8 +4,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class DiceGameTest {
@@ -34,7 +33,7 @@ public class DiceGameTest {
     void setup() {
         p1 = new Player("Alen");
         p2 = new Player("Bogdan");
-        sut = new Game(dice, p1, p2, scoreBoard, leaderBoard);
+        sut = spy(new Game(dice, p1, p2, scoreBoard, leaderBoard));
     }
 
 
@@ -51,6 +50,15 @@ public class DiceGameTest {
         when(input.getInput()).thenReturn("P").thenReturn("Q");
         sut.playTheGame(input, output);
         verify(output).print("Playing Round: " + 1);
+    }
+
+    @Test
+    void shouldCallRoundsWhenUserPressPlay() {
+        when(input.getInput()).thenReturn("P").thenReturn("Q");
+        sut.playTheGame(input, output);
+        verify(sut).playRounds(output);
+
+
     }
 
 }
