@@ -36,6 +36,8 @@ public class DiceGameTest {
         sut = new Game(dice, p1, p2, scoreBoard, leaderBoard);
     }
 
+
+    //checks when user press Q
     @Test
     void shouldStopImmediateWhenUserPressQuit() {
         when (input.getInput()).thenReturn("Q");
