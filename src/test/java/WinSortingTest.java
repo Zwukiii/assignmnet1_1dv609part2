@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 class WinSortingTest {
@@ -110,6 +109,25 @@ class WinSortingTest {
         assertEquals(2,sut.getPlayersByScore().size());
         assertTrue(sut.getPlayersByScore().contains(mockPlayer));
 
+
+    }
+
+
+    @Test
+    void PlayerWithSameNameDoesntIncreaseListWithNewPlayerOrOverwrite(){
+
+        Player exists = mock(Player.class);
+        when(exists.getName()).thenReturn("Christian");
+        when(exists.getScore()).thenReturn(3);
+        sut.addPlayers(exists);
+
+        Player newPlayer = mock(Player.class);
+        when(newPlayer.getName()).thenReturn("Christian");
+        when(newPlayer.getScore()).thenReturn(6);
+        sut.addPlayers(newPlayer);
+
+        verify(exists).playerScores(6);
+        assertEquals(1,sut.getPlayersByScore().size());
 
     }
 
