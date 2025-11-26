@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import static java.lang.Character.getName;
-
 public class WinSorting {
 
     private final List<Player> players;
@@ -13,7 +11,16 @@ public class WinSorting {
     }
 
     public void addPlayers(Player player){
-        players.add(player);
+
+        int index = binarySearch(player.getName());
+
+        if(index>=0){
+            Player existing = players.get(index);
+            existing.playerScores(player.getScore());
+        }else {
+            players.add(player);
+        }
+
     }
 
 
@@ -35,7 +42,22 @@ public class WinSorting {
        return -1;
     }
 
+    public List<Player>getPlayersByScore(){
+        List<Player> sorted = new ArrayList<>(players);
+        sorted.sort((p1, p2)->Integer.compare(p2.getScore(), p1.getScore()));
+        return sorted;
+    }
 
+
+    public void printLeader() {
+        System.out.println("\n===== Leaderboard =====");
+        System.out.printf("%-10s | %s%n", "Player", "Score");
+        System.out.println("-----------------------");
+        for(Player p: getPlayersByScore()){
+            System.out.printf("%-10s | %d%n", p.getName(), p.getScore());
+        }
+        System.out.println("=======================\n");
+    }
 
     public List<Player> getPlayers() {
         return players;
