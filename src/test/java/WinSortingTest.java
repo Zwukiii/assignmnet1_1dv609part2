@@ -87,11 +87,11 @@ class WinSortingTest {
     void addNewPlayerWhenNoPlayerFound(){
 
         when(mockPlayer.getName()).thenReturn("Christian");
-        when(mockPlayer.getScore()).thenReturn(5);
+        when(mockPlayer.getScore()).thenReturn(6);
 
         sut.addPlayers(mockPlayer);
 
-        assertEquals(1, sut.getPlayersByScore());
+        assertEquals(1, sut.getPlayersByScore().size());
         assertEquals(mockPlayer, sut.getPlayersByScore().get(0));
 
     }
