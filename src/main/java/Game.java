@@ -52,6 +52,10 @@ public class Game {
             } else if (user.equalsIgnoreCase("P")) {
                 output.print("Playing Round: " + round);
                 playRounds(output);
+
+                output.print(p1.getName() + " scores:" + p1.getScore());
+                output.print(p2.getName() + " scores:" + p2.getScore());
+
                 round++;
             } else {
                 output.print("Invalid Input!");
