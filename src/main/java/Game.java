@@ -53,6 +53,8 @@ public class Game {
                 output.print("Playing Round: " + round);
                 playRounds(output);
                 round++;
+            } else {
+                output.print("Invalid Input!");
             }
 
 
