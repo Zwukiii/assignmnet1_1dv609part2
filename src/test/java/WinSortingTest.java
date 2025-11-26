@@ -96,6 +96,25 @@ class WinSortingTest {
 
     }
 
+    @Test
+    void addMultiplePlayers(){
+        Player exists = mock(Player.class);
+        when(exists.getName()).thenReturn("Christian");
+        when(exists.getScore()).thenReturn(3);
+
+        when(mockPlayer.getName()).thenReturn("Oliver");
+        when(mockPlayer.getScore()).thenReturn(3);
+
+        sut.addPlayers(mockPlayer);
+
+        assertEquals(2,sut.getPlayersByScore().size());
+        assertTrue(sut.getPlayersByScore().contains(mockPlayer));
+
+
+    }
+
+
+
 
 
 
