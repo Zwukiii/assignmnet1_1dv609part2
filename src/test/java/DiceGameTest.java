@@ -37,10 +37,9 @@ public class DiceGameTest {
     }
 
 
-
     @Test
     void shouldStopImmediateWhenUserPressQuit() {
-        when (input.getInput()).thenReturn("Q");
+        when(input.getInput()).thenReturn("Q");
         sut.playTheGame(input, output);
         verify(output).print("Game Over. Winner is: " + sut.getWinner());
     }
@@ -57,8 +56,12 @@ public class DiceGameTest {
         when(input.getInput()).thenReturn("P").thenReturn("Q");
         sut.playTheGame(input, output);
         verify(sut).playRounds(output);
-
-
     }
 
+    @Test
+    void shouldPrintInvalidMessageForInvalidInput() {
+        when(input.getInput()).thenReturn("X").thenReturn("Q");
+        sut.playTheGame(input, output);
+        verify(output).print("Invalid Input!");
+    }
 }
