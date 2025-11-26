@@ -37,12 +37,12 @@ public class DiceGameTest {
     }
 
 
-    //checks when user press Q
+
     @Test
     void shouldStopImmediateWhenUserPressQuit() {
         when (input.getInput()).thenReturn("Q");
         sut.playTheGame(input, output);
-        verify(output).print("Game Over. Winner is:");
+        verify(output).print("Game Over. Winner is: ");
     }
 
 }
