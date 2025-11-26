@@ -31,6 +31,7 @@ public class Game {
         p2.playerScores(r2);
         leaderboard.addPlayers(p1);
         leaderboard.addPlayers(p2);
+        leaderboard.printLeader();
 
     }
 }
