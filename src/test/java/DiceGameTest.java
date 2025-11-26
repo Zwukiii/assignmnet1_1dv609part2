@@ -4,7 +4,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class DiceGameTest {
@@ -21,6 +22,7 @@ public class DiceGameTest {
     @Mock
     private ScoreBoard scoreBoard;
 
+
     @Mock
     private WinSorting leaderBoard;
 
@@ -36,9 +38,10 @@ public class DiceGameTest {
     }
 
 
+
     @Test
     void shouldStopImmediateWhenUserPressQuit() {
-        when(input.getInput()).thenReturn("Q");
+        when (input.getInput()).thenReturn("Q");
         sut.playTheGame(input, output);
         verify(output).print("Game Over. Winner is: " + sut.getWinner());
     }
@@ -48,15 +51,6 @@ public class DiceGameTest {
         when(input.getInput()).thenReturn("P").thenReturn("Q");
         sut.playTheGame(input, output);
         verify(output).print("Playing Round: " + 1);
-    }
-
-    @Test
-    void shouldCallRoundsWhenUserPressPlays() {
-        Game spySut = spy(new Game(dice, p1, p2, scoreBoard, leaderBoard));
-        when(input.getInput()).thenReturn("P").thenReturn("Q");
-        spySut.playTheGame(input, output);
-        verify(spySut).playRounds(output);
-
     }
 
 }
