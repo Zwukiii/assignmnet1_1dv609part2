@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import static java.lang.Character.getName;
-
 public class WinSorting {
 
     private final List<Player> players;
@@ -50,6 +48,10 @@ public class WinSorting {
         return sorted;
     }
 
+
+    public void printLeader(){
+
+    }
 
 
     public List<Player> getPlayers() {

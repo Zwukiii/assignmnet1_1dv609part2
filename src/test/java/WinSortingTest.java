@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -133,6 +135,24 @@ class WinSortingTest {
 
     }
 
-    
+    @Test
+    void printLeaderGetsPointsAndName(){
+        Player p1 = new Player("Bogdan");
+        p1.playerScores(5);
+
+        sut.addPlayers(p1);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+
+        sut.printLeader();
+
+        String output = outContent.toString();
+        assertTrue(output.contains("Bogdan"));
+        assertTrue(output.contains("5"));
+        assertTrue(output.contains("Leaderboard"));
+
+    }
 
 }
