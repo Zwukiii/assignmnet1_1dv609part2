@@ -13,14 +13,16 @@ public class WinSorting {
     }
 
     public void addPlayers(Player player){
+
         int index = binarySearch(player.getName());
 
-        if(index >= 0){
+        if(index>=0){
             Player existing = players.get(index);
             existing.playerScores(player.getScore());
         }else {
             players.add(player);
         }
+
     }
 
 
