@@ -45,4 +45,11 @@ public class DiceGameTest {
         verify(output).print("Game Over. Winner is: " + sut.getWinner());
     }
 
+    @Test
+    void shouldPrintRoundMessageWhenUsersPlays() {
+        when(input.getInput()).thenReturn("P").thenReturn("Q");
+        sut.playTheGame(input, output);
+        verify(output).print("Playing Round: " + 1);
+    }
+
 }
