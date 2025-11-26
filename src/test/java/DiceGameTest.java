@@ -42,7 +42,7 @@ public class DiceGameTest {
     void shouldStopImmediateWhenUserPressQuit() {
         when (input.getInput()).thenReturn("Q");
         sut.playTheGame(input, output);
-        verify(output).print("Game Over. Winner is: ");
+        verify(output).print("Game Over. Winner is: " + sut.getWinner());
     }
 
 }

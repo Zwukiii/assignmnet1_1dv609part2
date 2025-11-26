@@ -24,6 +24,7 @@ public class Game {
         return p2;
     }
 
+
     public void playRounds(OutputProvider output) {
         int r1 = dice.rollDice();
         int r2 = dice.rollDice();
@@ -35,7 +36,17 @@ public class Game {
 
     }
 
+    public String getWinner() {
+        return scoreBoard.getWinner(p1, p2);
+    }
+
     public void playTheGame(InputProvider input, OutputProvider output) {
+        String user = input.getInput();
+
+        if (user.equalsIgnoreCase("Q")) {
+            output.print("Game Over. Winner is: " + getWinner());
+        }
+
 
     }
 }
