@@ -44,11 +44,18 @@ public class DiceRoundTest {
     }
 
     @Test
-    public void shouldAddScoresToPlayers() {
+    void shouldAddScoresToPlayers() {
         when(dice.rollDice()).thenReturn(5, 6);
         sut.playRounds(output);
         assertEquals(5, sut.getP1().getScore());
         assertEquals(6, sut.getP2().getScore());
+    }
+
+    @Test
+    void shouldPrintLeaderBoardAfterRound() {
+        when(dice.rollDice()).thenReturn(10, 5);
+        sut.playRounds(output);
+        verify(leaderboard).printLeader();
     }
 
 
