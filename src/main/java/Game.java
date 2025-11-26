@@ -41,10 +41,14 @@ public class Game {
     }
 
     public void playTheGame(InputProvider input, OutputProvider output) {
+        int round = 1;
         String user = input.getInput();
 
         if (user.equalsIgnoreCase("Q")) {
             output.print("Game Over. Winner is: " + getWinner());
+        } else if (user.equalsIgnoreCase("P")) {
+            output.print("Playing Round: " + round);
+            playRounds(output);
         }
 
 
