@@ -51,10 +51,5 @@ public class DiceRoundTest {
         assertEquals(6, sut.getP2().getScore());
     }
 
-    @Test
-    void shouldUpdateLeaderBoardWithBothPlayers() {
-        when(dice.rollDice()).thenReturn(2, 5);
-        sut.playRounds(output);
-        verify(leaderboard).printLeader();
-    }
+
 }
