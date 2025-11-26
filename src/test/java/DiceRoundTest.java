@@ -20,6 +20,9 @@ public class DiceRoundTest {
     @Mock
     OutputProvider output;
 
+    @Mock
+
+
 
     Player p1;
     Player p2;

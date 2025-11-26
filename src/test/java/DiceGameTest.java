@@ -52,4 +52,12 @@ public class DiceGameTest {
         verify(output).print("Playing Round: " + 1);
     }
 
+    @Test
+    void shouldCallRoundsWhenUserPressPlays(){
+        when(input.getInput()).thenReturn("P").thenReturn("Q");
+        sut.playTheGame(input, output);
+        verify(sut).playRounds(output);
+
+    }
+
 }
