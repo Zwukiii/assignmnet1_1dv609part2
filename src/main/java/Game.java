@@ -34,4 +34,8 @@ public class Game {
         leaderboard.printLeader();
 
     }
+
+    public void playTheGame(InputProvider input, OutputProvider output) {
+
+    }
 }
