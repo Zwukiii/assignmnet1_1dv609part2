@@ -64,4 +64,12 @@ public class DiceGameTest {
         sut.playTheGame(input, output);
         verify(output).print("Invalid Input!");
     }
+
+    @Test
+    void shouldPrintScoresAfterRound() {
+        when(input.getInput()).thenReturn("P").thenReturn("Q");
+        sut.playTheGame(input, output);
+        verify(output).print(p1.getName() + " scores:" + p1.getScore());
+        verify(output).print(p2.getName() + " scores:" + p2.getScore());
+    }
 }
