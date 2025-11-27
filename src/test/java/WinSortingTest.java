@@ -163,9 +163,23 @@ class WinSortingTest {
     //Object test (NO JSON)
     @Test
     void sutProducesCorrectSaveObj(){
-        
+        WinSorting sut = new WinSorting();
+        Player p1 = new Player("Bogdan");
+        p1.playerScores(5);
+        Player p2 = new Player("Alen");
+        p1.playerScores(6);
+
+        sut.addPlayers(p1);
+        sut.addPlayers(p2);
+
+        assertEquals(2, sut.getPlayers().size());
+        assertEquals(5, sut.getPlayers().get(0).getScore());
+        assertEquals(6, sut.getPlayers().get(1).getScore());
     }
 
+
+
+    //End to end json test
     @Test
     void testSaveToJson(@TempDir Path tempDir)throws Exception{
         WinSorting sut = new WinSorting();
