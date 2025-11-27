@@ -1,11 +1,9 @@
+import com.google.gson.Gson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.PrintStream;
-import java.io.Writer;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -206,6 +204,29 @@ class WinSortingTest {
     }
 
     @Test
+    void loadFromFile(@TempDir Path tempDir) throws Exception{
+        WinSorting sut = new WinSorting();
+
+        Player p1 = new Player("Bogdan");
+        p1.playerScores(5);
+        Player p2 = new Player("Alen");
+        p1.playerScores(6);
+
+        File file = tempDir.resolve("scores.json").toFile();
+
+        try(Writer writer = new FileWriter(file)){
+            new Gson().toJson(p1, writer);
+            new Gson().toJson(p2, writer);
+
+        }
+
+        sut.loadFromFile(file.getAbsolutePath());
+
+        assertEquals(2, sut.getPlayers().size());
+        assertEquals(5, sut.getPlayers().get(0).getScore());
+        assertEquals(6, sut.getPlayers().get(1).getScore());
+
+    }
 
 
 
