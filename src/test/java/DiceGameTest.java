@@ -79,4 +79,11 @@ public class DiceGameTest {
         sut.playTheGame(input, output);
         verify(output).print("Enter P to play and Q to quit");
     }
+
+    @Test
+    void shouldPrintMenuAfterRound(){
+        when(input.getInput()).thenReturn("P").thenReturn("Q");
+        sut.playTheGame(input, output);
+        verify(output).print("Enter P to play another round and Q to quit");
+    }
 }
