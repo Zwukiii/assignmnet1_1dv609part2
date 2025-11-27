@@ -57,6 +57,7 @@ public class Game {
                 output.print(p2.getName() + " scores:" + p2.getScore());
 
                 round++;
+                output.print("Enter P to play another round and Q to quit");
             } else {
                 output.print("Invalid Input!");
             }
