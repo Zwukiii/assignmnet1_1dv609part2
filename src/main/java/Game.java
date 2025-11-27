@@ -42,6 +42,7 @@ public class Game {
 
     public void playTheGame(InputProvider input, OutputProvider output) {
         int round = 1;
+        output.print("Enter P to play and Q to quit");
         while (true) {
             String user = input.getInput();
 
