@@ -42,7 +42,6 @@ public class Game {
 
     public void playTheGame(InputProvider input, OutputProvider output) {
         int round = 1;
-
         while (true) {
             String user = input.getInput();
 

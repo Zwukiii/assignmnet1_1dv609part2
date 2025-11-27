@@ -72,4 +72,11 @@ public class DiceGameTest {
         verify(output).print(p1.getName() + " scores:" + p1.getScore());
         verify(output).print(p2.getName() + " scores:" + p2.getScore());
     }
+
+    @Test
+    void shouldPrintMenuBeforeLoop() {
+        when(input.getInput()).thenReturn("Q");
+        sut.playTheGame(input, output);
+        verify(output).print("Enter P to play and Q to quit");
+    }
 }
