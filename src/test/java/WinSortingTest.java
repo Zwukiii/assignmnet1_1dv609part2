@@ -228,5 +228,16 @@ class WinSortingTest {
     }
 
 
+    @Test
+    void saveScoreToJson_exceptionTest(){
+
+        WinSorting sut = new WinSorting();
+
+        File dir = new File(System.getProperty("java.io.tmpdir"));
+
+        assertThrows(IOException.class, ()->{
+            sut.loadFromFile(dir.getAbsolutePath());
+        });
+    }
 
 }

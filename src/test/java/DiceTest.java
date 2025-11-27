@@ -23,4 +23,6 @@ class DiceTest {
         int roll = sut.rollDice();
         assertTrue(roll>0 && roll <7);
     }
+
+    
 }

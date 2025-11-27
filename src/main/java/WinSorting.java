@@ -65,31 +65,25 @@ public class WinSorting {
     }
 
 
-    public void saveScoreToJson(String scores){
+    public void saveScoreToJson(String scores)throws IOException{
         try(Writer writer = new FileWriter(scores)){
             Gson gson = new Gson();
             gson.toJson(players,writer);
-        }catch (IOException e){
-            e.printStackTrace();
         }
     }
 
-    public void loadFromFile(String scores){
-        try(Reader reader = new FileReader(scores)){
+    public void loadFromFile(String scores) throws IOException {
+        try (Reader reader = new FileReader(scores)) {
             Gson gson = new Gson();
-            Type lisType = new TypeToken<ArrayList<Player>>(){
-            }.getType();
-            List<Player>loaded = gson.fromJson(reader, lisType);
-            if(loaded != null){
+            Type listType = new TypeToken<ArrayList<Player>>() {}.getType();
+            List<Player> loaded = gson.fromJson(reader, listType);
+            if (loaded != null) {
                 players.clear();
                 players.addAll(loaded);
             }
-        }catch (FileNotFoundException e){
-            System.out.println("No previous found");
-        }catch (IOException e){
-            e.printStackTrace();
         }
     }
+
     public List<Player> getPlayers() {
         return players;
     }
