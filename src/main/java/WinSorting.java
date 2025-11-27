@@ -59,6 +59,11 @@ public class WinSorting {
         System.out.println("=======================\n");
     }
 
+
+    public void saveScoreToJson(String scores){
+        try(Writer )
+    }
+
     public List<Player> getPlayers() {
         return players;
     }
