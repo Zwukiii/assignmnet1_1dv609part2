@@ -1,3 +1,8 @@
+import com.google.gson.Gson;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -59,6 +64,19 @@ public class WinSorting {
         System.out.println("=======================\n");
     }
 
+
+    public void saveScoreToJson(String scores){
+        try(Writer writer = new FileWriter(scores)){
+            Gson gson = new Gson();
+            gson.toJson(players,writer);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void loadFromFile(String scores){
+
+    }
     public List<Player> getPlayers() {
         return players;
     }

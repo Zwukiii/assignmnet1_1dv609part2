@@ -1,8 +1,13 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.PrintStream;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -154,6 +159,53 @@ class WinSortingTest {
         assertTrue(output.contains("Leaderboard"));
 
     }
+
+    //Object test (NO JSON)
+    @Test
+    void sutProducesCorrectSaveObj(){
+        WinSorting sut = new WinSorting();
+        Player p1 = new Player("Bogdan");
+        p1.playerScores(5);
+        Player p2 = new Player("Alen");
+        p2.playerScores(6);
+
+        sut.addPlayers(p1);
+        sut.addPlayers(p2);
+
+        assertEquals(2, sut.getPlayers().size());
+        assertEquals(5, sut.getPlayers().get(0).getScore());
+        assertEquals(6, sut.getPlayers().get(1).getScore());
+
+    }
+
+
+
+
+    //End to end json test
+    @Test
+    void testSaveToJson(@TempDir Path tempDir)throws Exception{
+        WinSorting sut = new WinSorting();
+
+        Player p1 = new Player("Bogdan");
+        p1.playerScores(5);
+        Player p2 = new Player("Alen");
+        p1.playerScores(6);
+
+        sut.addPlayers(p1);
+        sut.addPlayers(p2);
+
+        File file =tempDir.resolve("scores.json").toFile();
+
+        sut.saveScoreToJson(file.getAbsolutePath());
+
+        assertTrue(file.exists());
+
+        String content = Files.readString(file.toPath());
+        assertFalse(content.isEmpty());
+
+    }
+
+    @Test
 
 
 
