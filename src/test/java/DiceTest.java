@@ -24,5 +24,11 @@ class DiceTest {
         assertTrue(roll>0 && roll <7);
     }
 
-    
+    @Test
+    void getSidesTest(){
+        sut = new Dice(6);
+
+        assertEquals(6, sut.getSides(), "Dice Should have 6 sides");
+    }
+
 }
