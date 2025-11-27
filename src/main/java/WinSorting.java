@@ -74,6 +74,9 @@ public class WinSorting {
         }
     }
 
+    public void loadFromFile(String scores){
+
+    }
     public List<Player> getPlayers() {
         return players;
     }
