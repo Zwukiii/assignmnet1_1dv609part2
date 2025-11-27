@@ -167,7 +167,7 @@ class WinSortingTest {
         Player p1 = new Player("Bogdan");
         p1.playerScores(5);
         Player p2 = new Player("Alen");
-        p1.playerScores(6);
+        p2.playerScores(6);
 
         sut.addPlayers(p1);
         sut.addPlayers(p2);
@@ -175,7 +175,9 @@ class WinSortingTest {
         assertEquals(2, sut.getPlayers().size());
         assertEquals(5, sut.getPlayers().get(0).getScore());
         assertEquals(6, sut.getPlayers().get(1).getScore());
+
     }
+
 
 
 
