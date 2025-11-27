@@ -210,14 +210,13 @@ class WinSortingTest {
         Player p1 = new Player("Bogdan");
         p1.playerScores(5);
         Player p2 = new Player("Alen");
-        p1.playerScores(6);
+        p2.playerScores(6);
 
         File file = tempDir.resolve("scores.json").toFile();
 
+        List<Player> playersToSave = List.of(p1,p2);
         try(Writer writer = new FileWriter(file)){
-            new Gson().toJson(p1, writer);
-            new Gson().toJson(p2, writer);
-
+            new Gson().toJson(playersToSave, writer);
         }
 
         sut.loadFromFile(file.getAbsolutePath());

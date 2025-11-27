@@ -1,8 +1,8 @@
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -75,7 +75,20 @@ public class WinSorting {
     }
 
     public void loadFromFile(String scores){
-
+        try(Reader reader = new FileReader(scores)){
+            Gson gson = new Gson();
+            Type lisType = new TypeToken<ArrayList<Player>>(){
+            }.getType();
+            List<Player>loaded = gson.fromJson(reader, lisType);
+            if(loaded != null){
+                players.clear();
+                players.addAll(loaded);
+            }
+        }catch (FileNotFoundException e){
+            System.out.println("No previous found");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
     public List<Player> getPlayers() {
         return players;
